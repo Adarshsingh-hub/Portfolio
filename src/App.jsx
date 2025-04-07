@@ -1,16 +1,22 @@
-import Header from './components/Header'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import Hero from "./sections/Hero"
+import About from "./sections/About"
+import Projects from "./sections/Projects"
+import Experience from "./sections/Experience"
+import Contact from "./sections/Contact"
+import Footer from "./sections/Footer"
+import ThemeToggle from "./components/ThemeToggle"
 
 function App() {
   return (
-    <div className="bg-zinc-900 text-white min-h-screen">
-      <Header />
+    <main className="font-sans">
+      <ThemeToggle />
+      <Hero />
       <About />
       <Projects />
+      <Experience />
       <Contact />
-    </div>
+      <Footer />
+    </main>
   )
 }
 

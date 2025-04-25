@@ -94,8 +94,8 @@ const Contact = () => {
           >
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Contact Details</h3>
-              <p className="text-gray-300 mb-1">adarsh@example.com</p>
-              <p className="text-gray-300">Mumbai, India</p>
+              <p className="text-gray-300 mb-1">addysingh409@gmail.com</p>
+              <p className="text-gray-300">Delhi, India</p>
             </div>
             
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg">

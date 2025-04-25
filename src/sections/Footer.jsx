@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Github, Linkedin, Instagram, Mail, Heart, ArrowRight } from "lucide-react";
+import { Mail, Heart, ArrowRight, MapPin, Phone, Clock } from "lucide-react";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -76,11 +77,11 @@ const Footer = () => {
               that solve real-world problems.
             </p>
             <a 
-              href="mailto:contact@adarshsingh.com" 
+              href="mailto:addysingh409@gmail.com" 
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200"
             >
               <Mail size={16} />
-              <span>contact@adarshsingh.com</span>
+              <span>addysingh409@gmail.com</span>
             </a>
           </div>
           
@@ -88,32 +89,36 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="/projects" className="hover:text-blue-400 transition-colors duration-200">Projects</a>
+                <a href="#projects" className="hover:text-blue-400 transition-colors duration-200">Projects</a>
               </li>
               <li>
-                <a href="/about" className="hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="#about" className="hover:text-blue-400 transition-colors duration-200">About</a>
               </li>
               <li>
-                <a href="/blog" className="hover:text-blue-400 transition-colors duration-200">Blog</a>
+                <a href="#blog" className="hover:text-blue-400 transition-colors duration-200">Blog</a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-blue-400 transition-colors duration-200">Contact</a>
+                <a href="#contact" className="hover:text-blue-400 transition-colors duration-200">Contact</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Technologies</h4>
-            <div className="flex flex-wrap gap-2">
-              {["React", "Node.js", "TypeScript", "Next.js", "Tailwind", "MongoDB"].map((tech) => (
-                <span 
-                  key={tech} 
-                  className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            <h4 className="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li className="flex items-center gap-3">
+                <MapPin size={16} className="text-blue-400 flex-shrink-0" />
+                <span>Delhi, India</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={16} className="text-blue-400 flex-shrink-0" />
+                <span>+91 7572047077</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock size={16} className="text-blue-400 flex-shrink-0" />
+                <span>Available: 10:00 AM - 6:00 PM IST</span>
+              </li>
+            </ul>
           </div>
         </div>
         
@@ -128,28 +133,28 @@ const Footer = () => {
               href="https://github.com/adarsh-unity"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-200"
-              title="GitHub"
+              aria-label="GitHub Profile"
+              className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-200 p-2"
             >
-              <Github size={20} />
+              <FaGithub size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/adarsh-unitycoin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 hover:scale-110 transition-all duration-200"
-              title="LinkedIn"
+              aria-label="LinkedIn Profile"
+              className="text-gray-400 hover:text-blue-400 hover:scale-110 transition-all duration-200 p-2"
             >
-              <Linkedin size={20} />
+              <FaLinkedin size={20} />
             </a>
             <a
               href="https://www.instagram.com/adarshunity"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-pink-500 hover:scale-110 transition-all duration-200"
-              title="Instagram"
+              aria-label="Instagram Profile"
+              className="text-gray-400 hover:text-pink-500 hover:scale-110 transition-all duration-200 p-2"
             >
-              <Instagram size={20} />
+              <FaInstagram size={20} />
             </a>
           </div>
         </div>

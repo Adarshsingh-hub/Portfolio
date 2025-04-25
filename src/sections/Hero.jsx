@@ -58,10 +58,10 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          A full-stack developer crafting scalable digital experiences at the intersection of 
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-medium"> AI</span>,
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 font-medium"> Blockchain</span>, and
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-400 font-medium"> Web</span>.
+          An AI-driven developer crafting scalable digital experiences at the intersection of
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-medium"> Machine Learning</span>,
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 font-medium"> Web Technologies</span>, and
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-400 font-medium"> APIs</span>.
         </motion.p>
         
         <motion.div 

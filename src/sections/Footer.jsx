@@ -242,7 +242,7 @@ const Footer = () => {
             <FaGithub size={22} className="group-hover:animate-bounce" />
           </a>
           <a
-            href="www.linkedin.com/in/adarshsingh01"
+            href="https://www.linkedin.com/in/adarshsingh01/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
@@ -251,7 +251,7 @@ const Footer = () => {
             <FaLinkedin size={22} className="group-hover:animate-bounce" />
           </a>
           <a
-            href="buymeacoffee.com/Adarsh_singh"
+            href="https://buymeacoffee.com/adarsh_singh"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Buymeacoffee Profile"

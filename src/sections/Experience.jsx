@@ -5,6 +5,21 @@ import { Calendar, MapPin, Briefcase, Award } from "lucide-react"
 import experience from "../data/experience"
 
 const Experience = () => {
+  // Sort experience to ensure Shopify developer card is last
+  const sortedExperience = [...experience].sort((a, b) => {
+    // Check if either item is the Shopify developer role
+    const isAShopify = a.role.toLowerCase().includes('shopify') || a.company.toLowerCase().includes('shopify');
+    const isBShopify = b.role.toLowerCase().includes('shopify') || b.company.toLowerCase().includes('shopify');
+    
+    // If A is Shopify and B is not, A should come after B
+    if (isAShopify && !isBShopify) return 1;
+    // If B is Shopify and A is not, B should come after A
+    if (!isAShopify && isBShopify) return -1;
+    
+    // Otherwise maintain original order
+    return 0;
+  });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,7 +41,7 @@ const Experience = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-white overflow-hidden" id="experience">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-white overflow-hidden" id="experience">
       <motion.div 
         className="max-w-5xl mx-auto"
         initial={{ opacity: 0 }}
@@ -34,8 +49,8 @@ const Experience = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        {/* Floating animated SVG background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating animated SVG background elements - hidden on mobile for better performance */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
           <motion.div 
             className="absolute top-20 left-8"
             animate={{ 
@@ -71,7 +86,7 @@ const Experience = () => {
         </div>
 
         <motion.h2 
-          className="text-5xl font-bold mb-16 text-center relative z-10"
+          className="text-3xl md:text-5xl font-bold mb-8 md:mb-16 text-center relative z-10"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -82,9 +97,9 @@ const Experience = () => {
           </span>
         </motion.h2>
         
-        {/* Animated career journey image */}
+        {/* Animated career journey image - hidden on small screens */}
         <motion.div
-          className="relative mb-20 flex justify-center"
+          className="relative mb-12 md:mb-20 hidden md:flex justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -100,8 +115,8 @@ const Experience = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 h-full w-px bg-gradient-to-b from-blue-500 to-purple-600 transform md:-translate-x-1/2">
+          {/* Timeline line - centered on desktop, left-aligned on mobile */}
+          <div className="absolute left-4 md:left-1/2 h-full w-px bg-gradient-to-b from-blue-500 to-purple-600 transform md:-translate-x-1/2">
             <motion.div 
               className="absolute top-0 w-full h-1/3 bg-gradient-to-b from-blue-500 to-transparent"
               animate={{ y: [0, 300, 0] }}
@@ -109,47 +124,47 @@ const Experience = () => {
             />
           </div>
           
-          <div className="space-y-16">
-            {experience.map((exp, index) => (
+          <div className="space-y-8 md:space-y-16">
+            {sortedExperience.map((exp, index) => (
               <motion.div 
                 key={index} 
                 className="relative"
                 variants={itemVariants}
               >
                 <div 
-                  className={`flex flex-col md:flex-row gap-8 ${
+                  className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
                     index % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Date marker */}
-                  <div className="md:w-1/2 flex md:justify-end">
+                  {/* Date marker - full width on mobile, half width on desktop */}
+                  <div className="pl-10 md:pl-0 md:w-1/2 flex md:justify-end">
                     <motion.div 
                       className="bg-gradient-to-r from-blue-600 to-purple-600 p-px rounded-xl w-full md:max-w-sm"
                       whileHover={{ scale: 1.03 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
-                      <div className="bg-white dark:bg-gray-900 p-6 rounded-xl h-full">
-                        <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
-                          <Calendar size={16} className="mr-2" />
-                          {exp.duration}
+                      <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-xl h-full">
+                        <div className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-2 md:mb-4">
+                          <Calendar size={16} className="mr-2 flex-shrink-0" />
+                          <span className="line-clamp-1">{exp.duration}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{exp.role}</h3>
-                        <div className="flex items-center mb-4">
-                          <Briefcase size={16} className="text-gray-600 dark:text-gray-400 mr-2" />
-                          <span className="text-gray-700 dark:text-gray-300 font-medium">{exp.company}</span>
+                        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2">{exp.role}</h3>
+                        <div className="flex items-center mb-2 md:mb-4">
+                          <Briefcase size={16} className="text-gray-600 dark:text-gray-400 mr-2 flex-shrink-0" />
+                          <span className="text-gray-700 dark:text-gray-300 font-medium line-clamp-1">{exp.company}</span>
                         </div>
                         {exp.location && (
-                          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                            <MapPin size={16} className="mr-2" />
-                            {exp.location}
+                          <div className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                            <MapPin size={16} className="mr-2 flex-shrink-0" />
+                            <span className="line-clamp-1">{exp.location}</span>
                           </div>
                         )}
                       </div>
                     </motion.div>
                   </div>
                   
-                  {/* Timeline dot with pulse effect */}
-                  <div className="absolute left-0 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 z-10">
+                  {/* Timeline dot with pulse effect - repositioned for mobile */}
+                  <div className="absolute left-4 top-6 md:left-1/2 md:top-1/2 transform md:-translate-y-1/2 md:-translate-x-1/2 z-10">
                     <motion.div
                       className="w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
                       initial={{ scale: 1 }}
@@ -166,40 +181,40 @@ const Experience = () => {
                     />
                   </div>
                   
-                  {/* Content */}
-                  <div className="md:w-1/2">
+                  {/* Content - full width on mobile, half width on desktop */}
+                  <div className="pl-10 md:pl-0 md:w-1/2">
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
+                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
                       whileHover={{ 
                         boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.2)", 
                         borderColor: "rgba(96, 165, 250, 0.7)" 
                       }}
                     >
-                      <p className="text-gray-700 dark:text-gray-300">{exp.details}</p>
+                      <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">{exp.details}</p>
                       
                       {exp.achievements && (
                         <motion.div 
-                          className="mt-4"
+                          className="mt-3 md:mt-4"
                           initial={{ opacity: 0, height: 0 }}
                           whileInView={{ opacity: 1, height: "auto" }}
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true }}
                         >
-                          <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                            <Award size={16} className="text-blue-500 mr-2" />
+                          <h4 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-1 md:mb-2 flex items-center">
+                            <Award size={16} className="text-blue-500 mr-2 flex-shrink-0" />
                             Key Achievements:
                           </h4>
                           <ul className="space-y-1">
                             {exp.achievements.map((achievement, i) => (
                               <motion.li 
                                 key={i} 
-                                className="text-sm text-gray-700 dark:text-gray-300 flex items-start"
+                                className="text-xs md:text-sm text-gray-700 dark:text-gray-300 flex items-start"
                                 initial={{ opacity: 0, x: -10 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: 0.1 * i }}
                                 viewport={{ once: true }}
                               >
-                                <span className="text-blue-500 mr-2">•</span>
+                                <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
                                 {achievement}
                               </motion.li>
                             ))}

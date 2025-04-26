@@ -170,7 +170,7 @@ const About = () => {
   const scrollRef = useRef(null);
   const statsRef = useRef(null);
 
-  // Setup the infinite scroll animation
+  // Setup the infinite scroll animation with improved speed
   useEffect(() => {
     if (!scrollRef.current) return;
     
@@ -185,7 +185,7 @@ const About = () => {
     
     let animationId = null;
     let startTime = null;
-    const speed = 0.5; // pixels per frame
+    const speed = 1.2; // Increased from 0.5 to 1.2 for faster scrolling
     
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
@@ -447,7 +447,7 @@ const About = () => {
           ))}
         </motion.div>
         
-        {/* Tech Stack Scrolling Section */}
+        {/* Tech Stack Scrolling Section - Modified for better mobile experience */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -468,8 +468,8 @@ const About = () => {
             </h3>
           </motion.div>
           
-          {/* Scrolling row */}
-          <div className="relative overflow-hidden py-6">
+          {/* Scrolling row with responsive sizing */}
+          <div className="relative overflow-hidden py-4">
             {/* Animated glowing background */}
             <motion.div 
               className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/5 to-blue-600/10 rounded-xl opacity-30"
@@ -484,30 +484,33 @@ const About = () => {
             />
             
             {/* Gradient overlay on left side */}
-            <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-950 dark:to-transparent z-10"></div>
+            <div className="absolute left-0 top-0 h-full w-16 md:w-24 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-950 dark:to-transparent z-10"></div>
             
             {/* Gradient overlay on right side */}
-            <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-gray-100 to-transparent dark:from-gray-950 dark:to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 h-full w-16 md:w-24 bg-gradient-to-l from-gray-100 to-transparent dark:from-gray-950 dark:to-transparent z-10"></div>
             
             <div className="flex items-center whitespace-nowrap" ref={scrollRef} style={{transform: 'translateX(0)'}}>
               {techStack.map((tech, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex flex-col items-center justify-center mx-8"
-                  whileHover={{ scale: 1.2, y: -5 }}
+                  className="flex flex-col items-center justify-center mx-4 md:mx-8"
+                  whileHover={{ scale: 1.1, y: -3 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div 
-                    className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-gray-300 dark:border-white/10 shadow-md flex items-center justify-center p-3 mb-2 hover:scale-110 transition-transform duration-300"
+                    className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-white/10 backdrop-blur-md border border-gray-300 dark:border-white/10 shadow-md flex items-center justify-center p-2 md:p-3 mb-1 md:mb-2 hover:scale-110 transition-transform duration-300"
                     whileHover={{ 
                       boxShadow: "0 0 25px rgba(79, 70, 229, 0.5)",
                       borderColor: "rgba(79, 70, 229, 0.5)",
                     }}
                   >
-                    {tech.logo}
+                    {/* Responsive icon size */}
+                    <div className="text-2xl md:text-3xl lg:text-4xl">
+                      {tech.logo}
+                    </div>
                   </motion.div>
                   <motion.span 
-                    className="text-sm font-medium"
+                    className="text-xs md:text-sm font-medium"
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ 
                       duration: 3,

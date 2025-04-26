@@ -223,9 +223,9 @@ const About = () => {
 
   // Statistics counter animation
   const stats = [
-    { value: 42, label: "Projects Completed", icon: <BsCodeSlash size={24} className="text-blue-500" /> },
-    { value: 15, label: "AI Models Deployed", icon: <FaBrain size={24} className="text-purple-500" /> },
-    { value: 8, label: "Years Experience", icon: <BsGear size={24} className="text-blue-600" /> }
+    { value: 20, label: "Projects Completed", icon: <BsCodeSlash size={24} className="text-blue-500" /> },
+    { value: 10, label: "AI Models Deployed", icon: <FaBrain size={24} className="text-purple-500" /> },
+    { value: 3, label: "Years Experience", icon: <BsGear size={24} className="text-blue-600" /> }
   ];
 
   return (
@@ -314,7 +314,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent relative z-10">
-                Who I Am
+                Who Am I
               </h3>
               <p className="text-lg mb-6 text-gray-700 dark:text-gray-300 leading-relaxed relative z-10">
                 I'm <motion.span 

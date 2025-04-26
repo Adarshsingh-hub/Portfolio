@@ -139,11 +139,11 @@ const Footer = () => {
               that solve real-world problems and create meaningful experiences.
             </p>
             <a 
-              href="mailto:addysingh409@gmail.com" 
+              href="mailto:contact@adarshsingh.dev" 
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 group"
             >
               <Mail size={16} className="transform group-hover:rotate-12 transition-transform duration-300" />
-              <span>addysingh409@gmail.com</span>
+              <span>contact@adarshsingh.dev</span>
             </a>
           </div>
           

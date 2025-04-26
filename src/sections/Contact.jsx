@@ -256,7 +256,7 @@ const Contact = () => {
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                addysingh409@gmail.com
+                contact@adarshsingh.dev
               </motion.p>
               
               <motion.div 

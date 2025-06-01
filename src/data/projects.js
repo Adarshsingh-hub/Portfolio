@@ -55,6 +55,14 @@ const projects = [
     //github: "https://github.com/username/sentiment-api",
     //link: null,
     featured: true
+  },
+  {
+    title: "A-Plus",
+    description: "AI-powered learning app with smart quizzes, interactive lessons, and real-time progress tracking",
+    tech: ["React", "TypeScript", "PostgreSQL", "Express", "Python", "FastAPI", "Langchain"],
+    category: "AI/ML",
+    featured: true,
+    status: "In Progress",
   }
 ];
 

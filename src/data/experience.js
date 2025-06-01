@@ -8,14 +8,14 @@ const experience = [
     {
       role: "Blockchain Developer",
       company: "UC (UnityCoin)",
-      duration: "2024 - Present",
+      duration: "2024 - 2025",
       details: "Developed a stablecoin-based payment platform for remittances, handled smart contract logic, and focused on compliance and scalability."
     },
-    {
-      role: "AI/ML Developer",
-      company: "AI Tutor Project",
-      duration: "2024 - Present",
-      details: "Building an AI-powered learning system with personalized recommendations, quizzes, and career guidance using Python and ML models."
+     {
+      role: "Chief Technology Officer",
+      company: "A-Plus",
+      duration: "2025- Present",
+      details: "Leading the development of an AI-powered learning app with smart quizzes, interactive lessons, and real-time progress tracking."
     }
   ]
   

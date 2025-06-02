@@ -63,6 +63,14 @@ const projects = [
     category: "AI/ML",
     featured: true,
     status: "In Progress",
+  },
+  {
+    title: "Tech Agency",
+    description: "A modern tech agency delivering web, app, AI, and marketing solutions to scale businesses effectively.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion", "Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "Langchain", "EmailJS", "Calendly"],
+    category: "Web",
+    featured: true,
+    status: "In Progress",
   }
 ];
 

@@ -70,7 +70,7 @@ const projects = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion", "Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "Langchain", "EmailJS", "Calendly"],
     category: "Web",
     featured: true,
-    status: "completed",
+    status: "Completed",
     link: "https://vectorsolutions.in",
   }
 ];
